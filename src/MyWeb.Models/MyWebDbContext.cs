@@ -23,6 +23,6 @@ namespace MyWeb.Models
             new DebugLoggerProvider()
         });
 
-        public DbSet<Users> Users { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }

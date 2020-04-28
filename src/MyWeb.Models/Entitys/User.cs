@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MyWeb.Models.Entitys
 {
-    public class Users : EntityWithDelModAdd<long>
+    public class User : EntityWithDelModAdd<long>
     {
         /// <summary>
         /// 登录名，需要验证唯一性
