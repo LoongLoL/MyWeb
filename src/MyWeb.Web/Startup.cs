@@ -9,11 +9,13 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using MyWeb.Models;
 using MyWeb.Web;
 using MyWeb.Web.Helper;
 using Swashbuckle.AspNetCore.Filters;
@@ -35,6 +37,7 @@ namespace MyWeb
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton(new AppSettings(Env.ContentRootPath));
+            services.AddDbContext<MyWebDbContext>(options => options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllersWithViews();
 
             #region swagger≈‰÷√
