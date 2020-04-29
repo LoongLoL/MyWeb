@@ -9,18 +9,19 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using MyWeb.Api.Helper;
 using MyWeb.Models;
-using MyWeb.Web;
-using MyWeb.Web.Helper;
 using Swashbuckle.AspNetCore.Filters;
 
-namespace MyWeb
+namespace MyWeb.Api
 {
     public class Startup
     {
@@ -33,6 +34,7 @@ namespace MyWeb
         public IConfiguration Configuration { get; }
         public IWebHostEnvironment Env { get; }
         public string ApiName { get; set; } = "MyWeb";
+
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
@@ -159,7 +161,7 @@ namespace MyWeb
                     c.SwaggerEndpoint($"/swagger/V1/swagger.json", $"{ApiName} V1");
 
                     //路径配置，设置为空，表示直接在根域名（localhost:8001）访问该文件,注意localhost:8001/swagger是访问不到的，去launchSettings.json把launchUrl去掉，如果你想换一个路径，直接写名字即可，比如直接写c.RoutePrefix = "doc";
-                    c.RoutePrefix = "swagger";
+                    c.RoutePrefix = string.Empty;
                 });
             }
             else
@@ -168,8 +170,8 @@ namespace MyWeb
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
             app.UseHttpsRedirection();
-            app.UseStaticFiles();
 
             app.UseRouting();
 
@@ -179,12 +181,7 @@ namespace MyWeb
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute(
-                    name: "areaRoute",
-                    pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapControllers();
             });
         }
     }

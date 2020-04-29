@@ -5,9 +5,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using MyWeb.Models;
+using MyWeb.Web.Models;
 
-namespace MyWeb.Controllers
+namespace MyWeb.Web.Controllers
 {
     public class HomeController : Controller
     {
@@ -21,6 +21,17 @@ namespace MyWeb.Controllers
         public IActionResult Index()
         {
             return View();
+        }
+
+        public IActionResult Privacy()
+        {
+            return View();
+        }
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }
