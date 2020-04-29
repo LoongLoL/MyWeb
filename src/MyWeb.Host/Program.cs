@@ -17,7 +17,7 @@ namespace MyWeb.Host
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
+             Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder(args)
                 .ConfigureLogging(logBuilder =>
                 {
                     logBuilder.ClearProviders();
