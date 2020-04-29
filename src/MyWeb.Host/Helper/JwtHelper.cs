@@ -1,6 +1,4 @@
 ﻿using Microsoft.IdentityModel.Tokens;
-using MyWeb.Web.Common;
-using MyWeb.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
@@ -8,8 +6,10 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using MyWeb.Host.Common;
+using MyWeb.Host.Models;
 
-namespace MyWeb.Web.Helper
+namespace MyWeb.Host.Helper
 {
     public class JwtHelper
     {

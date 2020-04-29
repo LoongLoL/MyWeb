@@ -4,14 +4,15 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using MyWeb.Web.Helper;
-using MyWeb.Web.Models;
+using MyWeb.Host.Controllers;
+using MyWeb.Host.Helper;
+using MyWeb.Host.Models;
 
-namespace MyWeb.Web.Controllers
+namespace MyWeb.Host.Controllers
 {
     [Route("api/[controller]")]
     [AllowAnonymous]
-    public class AuthenticateController : Controller
+    public class AuthenticateController : ApiControllerBase
     {
         [HttpPost]
         [Route("login")]
@@ -38,7 +39,7 @@ namespace MyWeb.Web.Controllers
 
             jwtStr = JwtHelper.IssueJwt(tokenModel);
             suc = true;
-            return Json(new
+            return new JsonResult(new
             {
                 success = suc,
                 token = jwtStr

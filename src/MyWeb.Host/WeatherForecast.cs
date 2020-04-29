@@ -1,6 +1,6 @@
 using System;
 
-namespace MyWeb.Api
+namespace MyWeb.Host
 {
     public class WeatherForecast
     {

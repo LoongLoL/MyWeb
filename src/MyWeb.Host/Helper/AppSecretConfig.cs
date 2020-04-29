@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MyWeb.Web.Helper
+namespace MyWeb.Host.Helper
 {
     public class AppSecretConfig
     {

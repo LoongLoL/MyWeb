@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MyWeb.Web
+namespace MyWeb.Host
 {
     /// <summary>
     /// appsettings.json操作类
