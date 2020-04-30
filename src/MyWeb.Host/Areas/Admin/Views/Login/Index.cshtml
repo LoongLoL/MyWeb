@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <LINK rel="Bookmark" href="/favicon.ico">
+    <LINK rel="Shortcut Icon" href="/favicon.ico" />
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="/admin/js/html5.js"></script>
+    <script type="text/javascript" src="/admin/js/respond.min.js"></script>
+    <script type="text/javascript" src="/admin/js/PIE_IE678.js"></script>
+    <![endif]-->
+    <!--[if IE 7]>
+    <link href="/admin/font/font-awesome-ie7.min.css" rel="stylesheet" type="text/css" />
+    <![endif]-->
+    <!--[if IE 6]>
+    <script type="text/javascript" src="/admin/js/DD_belatedPNG_0.0.8a-min.js" ></script>
+    <script>DD_belatedPNG.fix('*');</script>
+    <![endif]-->
+    <title>后台登录页</title>
+    <link rel="stylesheet" href="~/admin/css/login.css">
+</head>
+<body>
+    <div class="login-box">
+        <h2>后台登录</h2>
+        <form>
+            <div class="user-box">
+                <input type="text" name="name" id="loginName" required="">
+                <label>用户名</label>
+                <span id="nameTit"></span>
+            </div>
+            <div class="user-box">
+                <input type="password" name="password" id="password" required="">
+                <label>密码</label>
+                <span id="passwordTit"></span>
+            </div>
+            <a href="javascipte:;" onclick="login();">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                登录
+            </a>
+        </form>
+    </div>
+</body>
+</html>
+<script type="text/javascript" src="/admin/js/jquery.min.js"></script>
+<script type="text/javascript">
+    function login() {
+        $(".login-box .user-box span").text("");
+        var name = $("#loginName").val();
+        var password = $("#password").val();
+        if (!(name != "" && name != null)) {
+            $("#nameTit").text("请输入用户名！");
+            return;
+        }
+        if (!(password != "" && password != null)) {
+            $("#passwordTit").text("请输入密码！");
+            return;
+        }
+        $.ajax({
+            type: 'post',
+            url: '/api/Authenticate/login',
+            data: { name: name, password: password },
+            success: function (result) {
+                alert(result.token);
+            }
+        });
+    }
+</script>

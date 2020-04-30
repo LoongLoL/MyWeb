@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using MyWeb.Host.Controllers;
 using MyWeb.Host.Helper;
 using MyWeb.Host.Models;
+using MyWeb.Models.Models;
 
 namespace MyWeb.Host.Controllers
 {
@@ -16,7 +17,7 @@ namespace MyWeb.Host.Controllers
     {
         [HttpPost]
         [Route("login")]
-        public JsonResult GetToken(string name, string pwd)
+        public JsonResult GetToken(string name, string password)
         {
             string jwtStr = string.Empty;
             bool suc = false;
@@ -24,14 +25,12 @@ namespace MyWeb.Host.Controllers
             //这里就是用户登陆以后，通过数据库去调取数据，分配权限的操作
             //这里直接写死了
 
-            if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(pwd))
-            {
-                return new JsonResult(new
+            if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(password))
+                return new JsonResult(new ResponseDto<string>
                 {
-                    Status = false,
-                    message = "用户名或密码不能为空"
+                    Code = ResponseCodeEnum.Failure,
+                    Message = "用户名或者密码不能为空！"
                 });
-            }
 
             TokenModelJwt tokenModel = new TokenModelJwt();
             tokenModel.Uid = 1;
@@ -39,10 +38,10 @@ namespace MyWeb.Host.Controllers
 
             jwtStr = JwtHelper.IssueJwt(tokenModel);
             suc = true;
-            return new JsonResult(new
+            return new JsonResult(new ResponseDto<string>
             {
-                success = suc,
-                token = jwtStr
+                Code = ResponseCodeEnum.Failure,
+                Data = jwtStr
             });
         }
     }

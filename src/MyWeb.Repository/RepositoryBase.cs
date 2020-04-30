@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MyWeb.Repository
 {
-    public class RepositoryBase
+    public class RepositoryBase<T>
     {
 
     }

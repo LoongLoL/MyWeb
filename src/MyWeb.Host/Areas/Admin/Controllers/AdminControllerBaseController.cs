@@ -6,11 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MyWeb.Host.Areas.Admin.Controllers
 {
-    public class HomeController : AdminControllerBaseController
+    [Area("Admin")]
+    public class AdminControllerBaseController : Controller
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
+
     }
 }

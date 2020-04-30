@@ -23,7 +23,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyWeb.Api", "src\MyWeb.Api\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyWeb.Web", "src\MyWeb.Web\MyWeb.Web.csproj", "{9B9F9C11-2954-4559-8553-459CAB2B3044}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyWeb.Host", "src\MyWeb.Host\MyWeb.Host.csproj", "{3CDC5C45-682B-44AD-AC53-572D8022D29A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyWeb.Host", "src\MyWeb.Host\MyWeb.Host.csproj", "{3CDC5C45-682B-44AD-AC53-572D8022D29A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
