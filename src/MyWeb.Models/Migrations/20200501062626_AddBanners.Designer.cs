@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MyWeb.Models;
 
 namespace MyWeb.Models.Migrations
 {
     [DbContext(typeof(MyWebDbContext))]
-    partial class MyWebDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200501062626_AddBanners")]
+    partial class AddBanners
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

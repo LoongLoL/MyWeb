@@ -1,11 +1,11 @@
-﻿using MyWeb.IRepository;
+﻿using MyWeb.Models.Entitys;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace MyWeb.Repository
 {
-    public class RepositoryBase<T>
+    public interface IBannerRepository : IRepository<Banner>
     {
 
     }

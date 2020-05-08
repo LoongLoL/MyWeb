@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace MyWeb.Models.Models
+﻿namespace MyWeb.Services.Dto
 {
     public class PageResultDto<T>
     {

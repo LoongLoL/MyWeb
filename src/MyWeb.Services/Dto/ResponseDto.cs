@@ -1,19 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace MyWeb.Models.Models
+﻿namespace MyWeb.Services.Dto
 {
-    public class ResponseDto : ResponseDto<bool>
-    {
-
-    }
-    public class ResponseDto<T>
+    public class ResponseDto
     {
         /// <summary>
         /// 请求结果代码
         /// </summary>
-        public ResponseCodeEnum Code { get; set; }
+        public int Code { get; set; }
         /// <summary>
         /// 返回的说明信息
         /// </summary>
@@ -21,6 +13,6 @@ namespace MyWeb.Models.Models
         /// <summary>
         /// 返回的数据
         /// </summary>
-        public T Data { get; set; }
+        public dynamic Data { get; set; }
     }
 }

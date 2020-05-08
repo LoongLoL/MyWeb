@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace MyWeb.Host.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class AdminControllerBaseController : Controller
+    public class AdminControllerBase : Controller
     {
 
     }

@@ -6,8 +6,8 @@ using MyWeb.Models.Models;
 
 namespace MyWeb.IRepository
 {
-    public interface IUsersRepository
+    public interface IUserRepository : IRepository<User>
     {
-        
+
     }
 }

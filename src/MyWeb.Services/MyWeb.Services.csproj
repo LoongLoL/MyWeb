@@ -5,8 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MyWeb.IRepository\MyWeb.IRepository.csproj" />
-    <ProjectReference Include="..\MyWeb.IServices\MyWeb.IServices.csproj" />
+    <Folder Include="Users\Dto\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MyWeb.Repository\MyWeb.Repository.csproj" />
   </ItemGroup>
 
 </Project>

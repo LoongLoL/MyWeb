@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using MyWeb.Host.Controllers;
 using MyWeb.Host.Helper;
 using MyWeb.Host.Models;
-using MyWeb.Models.Models;
+using MyWeb.Services.Dto;
 
 namespace MyWeb.Host.Controllers
 {
@@ -26,9 +26,9 @@ namespace MyWeb.Host.Controllers
             //这里直接写死了
 
             if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(password))
-                return new JsonResult(new ResponseDto<string>
+                return new JsonResult(new ResponseDto
                 {
-                    Code = ResponseCodeEnum.Failure,
+                    Code = 0,
                     Message = "用户名或者密码不能为空！"
                 });
 
@@ -38,9 +38,9 @@ namespace MyWeb.Host.Controllers
 
             jwtStr = JwtHelper.IssueJwt(tokenModel);
             suc = true;
-            return new JsonResult(new ResponseDto<string>
+            return new JsonResult(new ResponseDto
             {
-                Code = ResponseCodeEnum.Failure,
+                Code = 0,
                 Data = jwtStr
             });
         }

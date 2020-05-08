@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MyWeb.Host.Areas.Admin.Controllers
 {
-    public class LoginController : AdminControllerBaseController
+    public class LoginController : AdminControllerBase
     {
         public IActionResult Index()
         {
