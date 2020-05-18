@@ -5,8 +5,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
+using MyWeb.Repository.IRepositorys;
 
-namespace MyWeb.Repository
+namespace MyWeb.Repository.Repositorys
 {
     /// <summary>
     /// 泛型仓储，实现泛型仓储接口

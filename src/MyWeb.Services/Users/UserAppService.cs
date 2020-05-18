@@ -4,6 +4,10 @@ using System.Text;
 using MyWeb.Services.Dto;
 using MyWeb.Repository;
 using MyWeb.Models.Entitys;
+using MyWeb.Repository.IRepositorys;
+using MyWeb.Services.Users.Dto;
+using AutoMapper;
+using System.Linq;
 
 namespace MyWeb.Services.Users
 {
@@ -16,29 +20,39 @@ namespace MyWeb.Services.Users
             _userRepository = userRepository;
         }
 
-        public ResponseDto AddUser(User user)
+        public ResponseDto AddUser(AddUserDto user)
         {
-            throw new NotImplementedException();
+            var entity = user.MapTo<User, AddUserDto>();
+            _userRepository.Add(entity);
+            return new ResponseDto { Code = 200, Message = "添加用户成功！" };
         }
 
         public ResponseDto DeleteUser(long id)
         {
-            throw new NotImplementedException();
+            _userRepository.Remove(id);
+            return new ResponseDto { Code = 200, Message = "删除用户成功！" };
         }
 
         public ResponseDto GetUserById(long id)
         {
-            throw new NotImplementedException();
+            var entity = _userRepository.GetById(id);
+            var user = entity.MapTo<UserDto, User>();
+            return new ResponseDto { Code = 200, Message = "获取用户成功！", Data = user };
         }
 
-        public ResponseDto GetUserByNameAndPwd(string name, string pwd)
+        public ResponseDto GetUserByNamePwd(string name, string pwd)
         {
-            throw new NotImplementedException();
+
+            var entity = _userRepository.GetUserByNamePwd(name, pwd).Result;
+            if (entity == null) return new ResponseDto { Code = 500, Message = "获取用户失败！" };
+            var user = entity.MapTo<UserDto, User>();
+            return new ResponseDto { Code = 200, Message = "获取用户成功！", Data = user };
         }
 
         public ResponseDto GetUsers()
         {
-            throw new NotImplementedException();
+            var userList = _userRepository.GetAll().MapTo<List<UserDto>, IQueryable<User>>();
+            return new ResponseDto { Code = 200, Message = "获取用户成功！", Data = userList };
         }
 
         public ResponseDto GetUsersByPage(int pageIndex, int pageSize)
@@ -46,9 +60,11 @@ namespace MyWeb.Services.Users
             throw new NotImplementedException();
         }
 
-        public ResponseDto UpdateUser(User updateUser)
+        public ResponseDto UpdateUser(UpdateUserDto updateUser)
         {
-            throw new NotImplementedException();
+            var user = updateUser.MapTo<User, UpdateUserDto>();
+            _userRepository.Update(user);
+            return new ResponseDto { Code = 200, Message = "更新用户成功！" };
         }
     }
 }

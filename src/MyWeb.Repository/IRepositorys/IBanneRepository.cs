@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace MyWeb.Repository
+namespace MyWeb.Repository.IRepositorys
 {
     public interface IBannerRepository : IRepository<Banner>
     {

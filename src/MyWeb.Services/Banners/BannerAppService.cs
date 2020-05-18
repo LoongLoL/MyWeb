@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using MyWeb.Models.Entitys;
 using MyWeb.Repository;
+using MyWeb.Repository.IRepositorys;
 using MyWeb.Services.Banners.Dto;
 using MyWeb.Services.Dto;
 

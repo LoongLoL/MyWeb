@@ -9,6 +9,9 @@ namespace MyWeb.Host.Areas.Admin.Controllers
     [Area("Admin")]
     public class AdminControllerBase : Controller
     {
+        public AdminControllerBase()
+        {
 
+        }
     }
 }

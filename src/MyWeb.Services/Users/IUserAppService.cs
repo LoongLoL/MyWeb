@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using MyWeb.Services.Dto;
+using MyWeb.Services.Users.Dto;
 
 namespace MyWeb.Services.Users
 {
@@ -14,7 +15,7 @@ namespace MyWeb.Services.Users
         /// <param name="name"></param>
         /// <param name="pwd"></param>
         /// <returns></returns>
-        ResponseDto GetUserByNameAndPwd(string name, string pwd);
+        ResponseDto GetUserByNamePwd(string name, string pwd);
         /// <summary>
         /// 根据Id获取指定数据
         /// </summary>
@@ -41,12 +42,12 @@ namespace MyWeb.Services.Users
         /// </summary>
         /// <param name="user"></param>
         /// <returns></returns>
-        ResponseDto AddUser(User user);
+        ResponseDto AddUser(AddUserDto user);
         /// <summary>
         /// 更新一条数据
         /// </summary>
         /// <param name="updateUser"></param>
         /// <returns></returns>
-        ResponseDto UpdateUser(User updateUser);
+        ResponseDto UpdateUser(UpdateUserDto updateUser);
     }
 }

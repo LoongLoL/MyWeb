@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace MyWeb.Repository
+namespace MyWeb.Repository.IRepositorys
 {
     /// <summary>
     /// 定义泛型仓储接口，并继承IDisposable，显式释放资源

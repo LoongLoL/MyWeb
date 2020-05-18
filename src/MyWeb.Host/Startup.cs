@@ -20,6 +20,7 @@ using Microsoft.OpenApi.Models;
 using MyWeb.Host.Helper;
 using MyWeb.Models;
 using MyWeb.Repository;
+using MyWeb.Repository.IRepositorys;
 using MyWeb.Repository.Repositorys;
 using MyWeb.Repository.Uow;
 using MyWeb.Services.Banners;

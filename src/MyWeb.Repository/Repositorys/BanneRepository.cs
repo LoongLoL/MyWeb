@@ -5,8 +5,9 @@ using System.Text;
 using Microsoft.EntityFrameworkCore;
 using MyWeb.Models;
 using MyWeb.Models.Entitys;
+using MyWeb.Repository.IRepositorys;
 
-namespace MyWeb.Repository
+namespace MyWeb.Repository.Repositorys
 {
     public class BannerRepository : Repository<Banner>, IBannerRepository
     {

@@ -50,6 +50,12 @@
 </html>
 <script type="text/javascript" src="/admin/js/jquery.min.js"></script>
 <script type="text/javascript">
+    $("#password").keyup(function (e) {
+        var key = e.which;
+        if (key == 13) {
+            login();
+        }
+    });
     function login() {
         $(".login-box .user-box span").text("");
         var name = $("#loginName").val();
@@ -67,7 +73,7 @@
             url: '/api/Authenticate/login',
             data: { name: name, password: password },
             success: function (result) {
-                alert(result.token);
+                alert(result.data);
             }
         });
     }
