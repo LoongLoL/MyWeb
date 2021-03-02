@@ -19,6 +19,11 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using MyWeb.Api.Helper;
 using MyWeb.Models;
+using MyWeb.Repository.IRepositorys;
+using MyWeb.Repository.Repositorys;
+using MyWeb.Repository.Uow;
+using MyWeb.Services.Banners;
+using MyWeb.Services.Users;
 using Swashbuckle.AspNetCore.Filters;
 
 namespace MyWeb.Api
@@ -41,7 +46,11 @@ namespace MyWeb.Api
             services.AddSingleton(new AppSettings(Env.ContentRootPath));
             services.AddDbContext<MyWebDbContext>(options => options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllers();
-
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<IBannerRepository, BannerRepository>();
+            services.AddScoped<IBannerAppService, BannerAppService>();
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IUserAppService, UserAppService>();
             #region swaggerÅäÖÃ
             services.AddSwaggerGen(c =>
             {
